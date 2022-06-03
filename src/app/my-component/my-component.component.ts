@@ -8,7 +8,7 @@ import { Pokemon } from '../pokemon';
 })
 export class MyComponentComponent implements OnInit {
   id: string = '';
-  
+  selectedPockeId: string='';
   pokes : Pokemon[]= [];
 
   constructor() { 

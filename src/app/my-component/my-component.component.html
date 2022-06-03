@@ -1,12 +1,13 @@
 <input [(ngModel)]="id">
 <input readonly [(ngModel)]="id">
 <BR>
-    Mon id est : {{id}}
+   
+    Mon pockemon sélectionné est : {{selectedPockeId}}
+
+    <BR>
+
+    <select [(ngModel)]="selectedPockeId">
+        <option [value]="poke.id" *ngFor="let poke of pokes">             {{poke.name}}</option>
+      </select>
 
     
-
-  
-
-    <ul>
-        <li *ngFor="let poke of pokes">{{poke.name}}</li>
-    </ul>
