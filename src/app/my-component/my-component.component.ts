@@ -8,16 +8,17 @@ import { Pokemon } from '../pokemon';
 })
 export class MyComponentComponent implements OnInit {
   id: string = '';
-  selectedPockeId: string='';
-  pokes : Pokemon[]= [];
+  selectedPockeId : string='';
+  searchPokeName = '';
+  pokes : Pokemon [] = [];
 
   constructor() { 
-    this.pokes.push (new Pokemon('1', 'Pickachu'));
-    this.pokes.push (new Pokemon('2', '	Méga-Florizarre'));
-    this.pokes.push (new Pokemon('3', '	Salamèche'));
-    this.pokes.push (new Pokemon('4', 'Reptincelu'));
-    this.pokes.push (new Pokemon('5', 'Dracaufeu'));
-}
+    this.pokes.push (new Pokemon ('1','Pikachu'));
+    this.pokes.push (new Pokemon ('2','Bulbasaur'));
+    this.pokes.push (new Pokemon ('3','ivysaur'));
+    this.pokes.push (new Pokemon ('4','venusaur'));
+    this.pokes.push (new Pokemon ('5','charmander'));
+  }
 
   ngOnInit(): void {
   }
