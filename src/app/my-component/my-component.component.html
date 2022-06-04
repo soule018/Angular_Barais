@@ -14,3 +14,4 @@
         <option [value]="poke.id" 
         *ngFor="let poke of pokes | filterPokemonPipe:'name':searchPokeName">             {{poke.name}}</option>
     </select>
+    <button (click)="go()">GO</button>
