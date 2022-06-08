@@ -20,6 +20,6 @@ import { FilterPokemonPipePipe } from './filter-pokemon--pipe.pipe';
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
