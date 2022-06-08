@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../pokemon';
+import { PockeAPIServiceService} from '../pocke-apiservice.service';
 
 @Component({
   selector: 'app-my-component',
@@ -12,15 +13,17 @@ export class MyComponentComponent implements OnInit {
   searchPokeName = '';
   pokes : Pokemon [] = [];
 
-  constructor() { 
-    this.pokes.push (new Pokemon ('1','Pikachu'));
-    this.pokes.push (new Pokemon ('2','Bulbasaur'));
-    this.pokes.push (new Pokemon ('3','ivysaur'));
-    this.pokes.push (new Pokemon ('4','venusaur'));
-    this.pokes.push (new Pokemon ('5','charmander'));
+  constructor(private PokeService: PockeAPIServiceService) { 
+    
   }
 
   ngOnInit(): void {
+    this.PokeService.getPokemons().subscribe((data) => {
+      data.results.forEach ((e, index) => {
+        this.pokes.push (new Pokemon (index,e.name));
+
+      });
+    }) ;
   }
 
   go(){
