@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MyComponentComponent } from './my-component/my-component.component';
 import { FilterPokemonPipePipe } from './filter-pokemon--pipe.pipe';
+import { PokededetailComponent } from './pokededetail/pokededetail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MyComponentComponent,
-    FilterPokemonPipePipe
+    FilterPokemonPipePipe,
+    PokededetailComponent
   ],
   imports: [
     BrowserModule,
