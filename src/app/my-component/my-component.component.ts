@@ -1,34 +1,44 @@
 import { Component, OnInit } from '@angular/core';
-import { Pokemon } from '../pokemon';
-import { PockeAPIServiceService} from '../pocke-apiservice.service';
+import { Pokemon,PokeDetail } from '../pokemon';
+import { PokeAPIServiceService } from '../pocke-apiservice.service';
 
 @Component({
   selector: 'app-my-component',
   templateUrl: './my-component.component.html',
   styleUrls: ['./my-component.component.css'],
-  providers: [PockeAPIServiceService] 
+  providers: [PokeAPIServiceService ] 
 })
 export class MyComponentComponent implements OnInit {
   id: string = '';
-  selectedPockeId : string='';
+  selectedPockeId : string;
   searchPokeName = '';
   pokes : Pokemon [] = [];
+  pokeDetail : PokeDetail;
 
-  constructor(private PokeService: PockeAPIServiceService) { 
-    
+  constructor( private pokeService: PokeAPIServiceService) { 
+    /*this.pok.push (new Pokemon ('1','Reptincel'));
+    this.pok.push (new Pokemon ('2','Bulbizarre'));
+    this.pok.push (new Pokemon ('3','Herbizarre'));
+    this.pok.push (new Pokemon ('4','Florizarre'));
+    this.pok.push (new Pokemon ('5','Salamèche'));*/
   }
 
   ngOnInit(): void {
-    this.PokeService.getPokemons().subscribe((data) => {
+    this.pokeService.getPokemons().subscribe((data) => {
+
+     
+
       data.results.forEach ((e, index) => {
-        this.pokes.push (new Pokemon (''+ index,e.name, e.url));
+        this.pokes.push (new Pokemon (''+index,e.name,e.url));
 
       });
     }) ;
   }
-
   go(){
-    console.log(this.selectedPockeId);
+
+    if(this.selectedPockeId !='' ){
+      this.pokeService.getPokemonInfo(this.selectedPockeId).subscribe(data => this.pokeDetail=data);
+    };
   }
 
 }
